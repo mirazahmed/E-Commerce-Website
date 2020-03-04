@@ -1,0 +1,29 @@
+<div id="allProdListSection">
+    <a href="/">Back to Home Page</a>
+    <p id="allProdListHeading">Product Categories</p>
+    
+    <section id ="allProducts">
+        {{#each allProducts}}
+            <div id ="allProductDisplay">
+                <img src={{this.picturePath}}> 
+                <br>
+                <p id="productTitle">
+                {{this.title}}
+                </p> <br>
+                <p id="productPrice">
+                   Price: {{this.price}}
+                </p>
+                <p id="productCategory">
+                    Category: {{this.category}}
+                </p>
+                <p id="bestSeller">
+                    {{#if this.bestSeller }}
+                     Best Seller: Yes!
+                    {{else}}
+                    Best Seller: 
+                    {{/if}}
+                </p>
+            </div>
+        {{/each}}
+    </section>
+</div>

@@ -1,0 +1,36 @@
+
+<div id="promotionSection">
+    {{!-- <h1>Promotion Section</h1> --}}
+    <img src="/images/bigsale.jpg" alt="PromotionBanner">
+    <div class="promotionMsg">Upto 50% SALE is On!!</div>
+</div>
+<div id="prodCatSection">
+    <a href="/products" id="productCatHeading">Product Categories</a> <br> <br>
+    {{!-- <p "></p> --}}
+    <section id ="prodCategories">
+        {{#each products}}
+            <div id ="sampleProducts">
+                <p id="productTitle">
+                {{this.title}}
+                </p> <br>
+                <img src={{this.picturePath}}>
+            </div>
+        {{/each}}
+    </section>
+</div>
+
+<div id="bestSellerSection">
+    <p id="bestSoldHeading">Best Sold Items</p>
+    <section id ="bestSoldItems">
+        {{#each bestSoldItems}}
+            <div id ="allBestSoldProds">
+                <p id="bestSoldItemName">
+                {{this.title}}
+                </p> <br>
+                <img src={{this.picturePath}}>
+            </div>
+        {{/each}}
+    </section>
+    {{!-- <h1>Best Seller Section</h1> --}}
+</div>
+    

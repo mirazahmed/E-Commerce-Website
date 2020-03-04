@@ -1,0 +1,239 @@
+/* header,company logo and navigation */
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Libre Baskerville', serif;
+}
+
+#headNav{
+    padding: 40px 0 40px 0;
+    background-color: #f2a0a0;
+    color: #f71919;
+    text-align: center;
+    font-size: 15px;
+}  
+.hpLink{
+text-decoration: none;
+color: white;
+}
+.fa-amazon{
+font-size: 30px;
+}
+
+#shoopersParadise{
+font-family: 'Montserrat Subrayada', sans-serif;
+font-size: 30px;
+}
+
+#pageLinks{
+padding: 0 0 0 60px;
+text-align: right;
+font-size: 12px;
+}
+
+
+/* promotion banner CSS */
+#promotionSection{
+position: relative;
+text-align: center;
+color: #db2547;
+}
+
+#promotionSection img {
+/* height: 80vh; */
+width: 100%;
+}
+
+.promotionMsg{
+position: absolute;
+top: 5%;
+left: 50%;
+transform: translate(-50%, -50%);
+font-size: 50px;
+}
+
+
+/* Product Categories Section */
+#prodCatSection{
+    background-color:  #e8b5b8;
+    color: white;
+    padding: 40px 0 40px 0;
+}
+
+#productCatHeading{
+    font-size: 25px;
+    padding-left: 550px;
+    color: white;
+    text-decoration: none;
+}
+
+#productTitle{
+    text-align: center;
+    font-size: 16px;
+}
+
+#prodCategories{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 50px 0px 50px 25px;
+}
+
+#sampleProducts img {
+    width: 23vw;
+    height: 30vh;
+}
+
+/* best Seller Section */
+#bestSellerSection{
+    background-color: #de8073;
+    color: white;
+}
+
+#bestSoldHeading{
+    text-align: center;
+    font-size: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#bestSoldItems{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 50px 0px 50px 25px;
+    /* width: 100vw; */
+    /* height: 50vh; */
+}
+
+#bestSoldItems img {
+    width: 23vw;
+    height: 30vh;
+}
+
+#bestSoldItemName{
+    text-align: center;
+    font-size: 16px;
+}
+
+/* products List section */
+#allProdListSection{
+    background-color:  #e8b5b8;;
+    color: white;
+}
+
+#allProdListSection a {
+    text-decoration: none;
+    color: white;
+}
+
+#allProdListHeading{
+    text-align: center;
+    font-size: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#allProducts{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 50px 0px 50px 25px;
+}
+
+#allProducts img {
+    width: 30vw;
+    height: 30vh;
+    padding: 30px 0 30px 0 ;
+}
+
+#productTitle{
+    text-align: left;
+    font-size: 16px;
+}
+
+#productPrice{
+    text-align: left;
+    font-size: 10px;
+}
+#productCategory{
+    text-align: left;
+    font-size: 12px;
+}
+
+#bestSeller{
+    text-align: left;
+    font-size: 12px;
+}
+
+/* Registration Page */
+
+#createAccount{
+    margin: 40px 0 40px 0;
+    text-align: center;
+}
+#fieldset{
+    margin: 20px 300px 20px 300px;
+    font-size: 14px;
+    text-align: center;
+}
+#submitBut{
+    background: #e8b5b8;
+    font-size: 12px;
+}
+
+#termsCondition{
+    font-size: 10px;
+}
+
+#accountHolder{
+    font-size: 12px;
+}
+
+
+/* log in page */
+#signIn{
+    margin: 40px 0 40px 0;
+    text-align: center;
+}
+#logInFieldset{
+    margin: 20px 300px 20px 300px;
+    font-size: 14px;
+    text-align: center;
+}
+#createBut{
+    background: #e8b5b8;
+    font-size: 12px;
+}
+
+#newShopper{
+    font-size: 10px;
+}
+
+/* footer Section */
+#footer{
+    padding: 30px 0 30px 20px;
+    background-color: #f2a0a0;
+    color: #2e2626;
+    font-size: 15px;
+}
+
+#footer > span{
+    text-align: center;
+    padding-left: 350px;
+    padding-right: 40px;
+    color: white;
+}
+
+.facebook {
+    color: #2e2626;
+}
+
+.twitter{
+    color: #2e2626;
+}
+
+.googleplus{
+    color: #2e2626;
+}
+
+#socialMediaLinks{
+    padding: 20px 0 20px 0;
+}
