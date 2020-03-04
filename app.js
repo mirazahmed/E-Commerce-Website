@@ -34,8 +34,6 @@ app.get('/products',(req, res)=>{
 });
 
 
-
-
 app.get('/logIn',(req, res)=>{
         res.render("logIn",{
         title: "log In Page"
@@ -50,23 +48,19 @@ app.get('/registration',(req, res)=>{
 });
 
 
+// app.get("/products",(req,res)=>{
+       
+//     res.render("products",{
+//         title: "Products",
+//         headingInfo: "Product page",
+//         products :productModel.getAllProducts()
+//     });
+// });
+
  
-
-
-const port = 3000;
-
-app.listen(port,()=>
-{
+const PORT=process.env.PORT || 3000;
+app.listen(PORT,()=>{
     console.log("server has started!!");
-});
+})
 
 
-app.get("/products",(req,res)=>{
-   
-    
-    res.render("products",{
-        title: "Products",
-        headingInfo: "Product page",
-        products :productModel.getAllProducts()
-    });
-});
