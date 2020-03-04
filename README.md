@@ -1,0 +1,1 @@
+This is an e-commerce site resembling the features of Amazon's website. 
