@@ -2,13 +2,21 @@
 <h1 id="signIn">Sign-In</h1>
 <a href="/">Back to Home Page</a>
 
+
+
 <form action ="/logIn" method="POST">
     <fieldset id="logInFieldset">
+           
         <label for ="email">Email</label> <br>
         <input type="text" id="email" name="email"> <br> <br>
-
+        
+           {{#each errorMessages}}
+        <div>{{this}}</div>
+        {{/each}}        
         <label for ="password">Password</label><br>
         <input type="text" id="password" name="password" placeholder="At least 6 characters"> <br> <br>
+        
+        
 
         <a href="#">Need help?</a> <br><br>
 
@@ -18,5 +26,6 @@
 
     </fieldset>
 </form>
+
 
 
