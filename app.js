@@ -47,17 +47,32 @@ app.get('/registration',(req, res)=>{
     })
 });
 
-
-// app.get("/products",(req,res)=>{
-       
-//     res.render("products",{
-//         title: "Products",
-//         headingInfo: "Product page",
-//         products :productModel.getAllProducts()
-//     });
-// });
-
  
+app.post('/logIn',(req, res)=>{
+
+    const errors = [];
+    if(req.body.email== ""){
+        errors.push("! Enter your e-mail");
+    } 
+
+    if (req.body.password == ""){
+    errors.push("! Enter your password");
+    }
+
+    if (errors.length > 0){
+        res.render("logIn",{
+        title: "log In Page",
+        errorMessages: errors
+        });
+    }
+    
+    else{
+        res.redirect("/");
+    }
+    
+    });
+
+
 const PORT=process.env.PORT || 3000;
 app.listen(PORT,()=>{
     console.log("server has started!!");
