@@ -15,6 +15,16 @@ router.get('/',(req, res)=>{
     }); 
 });
 
+// const allProductsModel = require("../model/allProduct");
+
+
+// router.get('/products',(req, res)=>{
+//     res.render("products",{
+//     title: "Products List Page",
+//     headingInfo: "Products List",
+//     allProducts: allProductsModel.getallProductsList()
+//     });
+// });
 
 
 router.get('/logIn',(req, res)=>{
@@ -68,7 +78,7 @@ router.post('/registration',(req, res)=>{
     const {name,email,password} = req.body;
 
     const sgMail = require('@sendgrid/mail');
-    sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+    sgMail.setApiKey(process.env.SEND_GRID_API_KEY);    
     const msg = {
     to: `${email}` ,
     from: `test@got.com`,

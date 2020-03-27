@@ -1,5 +1,41 @@
+
+
+<div class="d-flex justify-content-center " id="prodCatSection">
+        <a href="/products/list" id="productCatHeading">Product Categories</a>
+    </div>
+    
+    <div class="container-fluid mx-0 px-0 " id ="allProductsInfo">
+        <div class="row justify-content-between mx-0">
+            
+                {{#each allProducts}}
+                 <div class="col-md-3" id ="sampleProducts">
+                     <img class="img-fluid py-3" src={{this.picturePath}}>
+                    <p class="text-center py-3 my-0" id="title">
+                    {{this.title}}
+                    </p>
+                    
+                    <p class="text-center" id="price">
+                        Price: {{this.price}}
+                    </p>
+                    <p class="text-center" id="category">
+                        Category: {{this.category}}
+                    </p>
+                    <p class="text-center" id="bestSeller">
+                        {{#if this.bestSeller }}
+                        Best Seller: Yes!
+                    {{else}}
+                        Best Seller: 
+                    {{/if}}
+                    </p>
+                 </div>
+
+                {{/each}}                  
+            
+        </div>
+    </div>
+
+{{!-- 
 <div id="allProdListSection">
-    <a href="/">Back to Home Page</a>
     <p id="allProdListHeading">Product Categories</p>
     
     <section id ="allProducts">
@@ -26,4 +62,4 @@
             </div>
         {{/each}}
     </section>
-</div>
+</div> --}}

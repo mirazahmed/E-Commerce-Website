@@ -19,12 +19,13 @@ app.use(express.static("public"));
 
 
 const generalController = require("./controllers/general");
-const productController = require("./controllers/product");
+const productController = require("./controllers/products");
+
 
 //map each controller to the app object
 
 app.use("/",generalController);
-app.use("/product",productController);
+app.use("/products",productController);
 
 
 const PORT = process.env.PORT;

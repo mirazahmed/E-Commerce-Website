@@ -1,35 +1,33 @@
-/* header,company logo and navigation */
+
 *{
     padding: 0;
     margin: 0;
-    font-family: 'Libre Baskerville', serif;
 }
 
-#headNav{
-    padding: 40px 0 40px 0;
-    background-color: #f2a0a0;
-    color: #f71919;
-    text-align: center;
-    font-size: 15px;
-}  
-.hpLink{
-text-decoration: none;
-color: white;
+body{
+    background-color:#fadee0 ;
 }
+
 .fa-amazon{
-font-size: 30px;
+font-size: 2.5rem;
+color: #EA1C2C;
 }
 
 #shoopersParadise{
-font-family: 'Montserrat Subrayada', sans-serif;
-font-size: 30px;
+font-family: 'Viaoda Libre', cursive;
+ font-size: 3rem; 
+ color: #EA1C2C; 
+ font-weight: 100;
+}
+#mainNavbar .nav-link{
+    font-size: 1.25rem;
+    color: #ab3a43;
 }
 
-#pageLinks{
-padding: 0 0 0 60px;
-text-align: right;
-font-size: 12px;
+#mainNavbar .nav-link:hover {
+    color: #EA1C2C;
 }
+
 
 
 /* promotion banner CSS */
@@ -39,14 +37,9 @@ text-align: center;
 color: #db2547;
 }
 
-#promotionSection img {
-/* height: 80vh; */
-width: 100%;
-}
-
 .promotionMsg{
 position: absolute;
-top: 5%;
+top: 20%;
 left: 50%;
 transform: translate(-50%, -50%);
 font-size: 50px;
@@ -55,122 +48,78 @@ font-size: 50px;
 
 /* Product Categories Section */
 #prodCatSection{
-    background-color:  #e8b5b8;
-    color: white;
-    padding: 40px 0 40px 0;
+    background-color: #e8b5b8;
+    padding: 40px;
 }
 
-#productCatHeading{
+ #productCatHeading{
     font-size: 25px;
-    padding-left: 550px;
     color: white;
     text-decoration: none;
-}
+} 
 
 #productTitle{
-    text-align: center;
+    color: #ab3a43;
     font-size: 16px;
-}
-
-#prodCategories{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding: 50px 0px 50px 25px;
-}
-
-#sampleProducts img {
-    width: 23vw;
-    height: 30vh;
+    font-weight: 200;
 }
 
 /* best Seller Section */
-#bestSellerSection{
+
+#bestSoldSection{
+    
     background-color: #de8073;
-    color: white;
+    padding: 40px;
 }
 
 #bestSoldHeading{
-    text-align: center;
     font-size: 25px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    color: white;
+    text-decoration: none;
 }
 
-#bestSoldItems{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding: 50px 0px 50px 25px;
-    /* width: 100vw; */
-    /* height: 50vh; */
-}
-
-#bestSoldItems img {
-    width: 23vw;
-    height: 30vh;
-}
 
 #bestSoldItemName{
-    text-align: center;
+    color: #ab3a43;
     font-size: 16px;
+    font-weight: 200;
 }
 
-/* products List section */
-#allProdListSection{
-    background-color:  #e8b5b8;;
-    color: white;
-}
 
-#allProdListSection a {
-    text-decoration: none;
-    color: white;
-}
 
-#allProdListHeading{
-    text-align: center;
-    font-size: 25px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-#allProducts{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 50px 0px 50px 25px;
-}
-
-#allProducts img {
-    width: 30vw;
-    height: 30vh;
-    padding: 30px 0 30px 0 ;
-}
-
-#productTitle{
-    text-align: left;
+/* All Products page */
+#title{
+    color: #ab3a43;
     font-size: 16px;
+    font-weight: 200;
 }
 
-#productPrice{
-    text-align: left;
+#price{
+    color: #ab3a43;
     font-size: 10px;
+    font-weight: 200;
 }
-#productCategory{
-    text-align: left;
-    font-size: 12px;
+#category {
+    color: #ab3a43;
+    font-size: 10px;
+    font-weight: 200;
 }
 
 #bestSeller{
-    text-align: left;
-    font-size: 12px;
+    color: #ab3a43;
+    font-size: 10px;
+    font-weight: 200;
 }
 
 /* Registration Page */
 
 #createAccount{
-    margin: 40px 0 40px 0;
+    margin: 60px 0 20px 0;
     text-align: center;
 }
-#fieldset{
-    margin: 20px 300px 20px 300px;
+#regFieldset{
+    margin: 0 300px 0px 300px;
+    padding: 10px 0 60px 0;
     font-size: 14px;
     text-align: center;
 }
@@ -178,11 +127,9 @@ font-size: 50px;
     background: #e8b5b8;
     font-size: 12px;
 }
-
 #termsCondition{
     font-size: 10px;
 }
-
 #accountHolder{
     font-size: 12px;
 }
@@ -190,11 +137,12 @@ font-size: 50px;
 
 /* log in page */
 #signIn{
-    margin: 40px 0 40px 0;
+    margin: 130px 0 20px 0;
     text-align: center;
 }
 #logInFieldset{
-    margin: 20px 300px 20px 300px;
+    margin: 0 300px 0 300px;
+    padding: 30px 0 110px 0;
     font-size: 14px;
     text-align: center;
 }
@@ -213,12 +161,12 @@ font-size: 50px;
     background-color: #f2a0a0;
     color: #2e2626;
     font-size: 15px;
+    flex-shrink: none;
 }
 
 #footer > span{
     text-align: center;
-    padding-left: 350px;
-    padding-right: 40px;
+    padding: 0 180px 0 30px;
     color: white;
 }
 
@@ -234,6 +182,77 @@ font-size: 50px;
     color: #2e2626;
 }
 
-#socialMediaLinks{
-    padding: 20px 0 20px 0;
+
+@media(max-width: 895px){
+    .fa-amazon{
+        font-size: 1.5rem;
+        }
+        
+        #shoopersParadise{        
+         font-size: 1.8rem; 
+         }
+
+        .promotionMsg{
+            font-size: 20px;
+        }
+
+        #prodCatSection{
+           padding: 15px;
+           font-size: 20px;
+        }
+        
+        
+        /*log in page*/
+        #logInFieldset{
+            margin-left: 150px;
+            margin-right: 150px;
+            font-size: 12px;
+            padding: 50px 0 145px 0;         
+        }
+        #createBut{
+            font-size: 10px;
+        }
+        #newShopper{
+            font-size: 10x;
+        }
+
+
+        /*Registration page*/
+
+        #createAccount{
+            margin: 100px 0 25px 0;
+        }
+        #regFieldset{
+            margin: 0 150px 0 150px;
+            padding: 27px 0 70px 0;
+            font-size: 11px;
+        }
+        #submitBut{
+          font-size: 10px;
+        }
+        #termsCondition{
+            font-size: 9px;
+        }
+        #accountHolder{
+            font-size: 10px;
+        }
+
 }
+
+@media(max-width: 897px) {
+    #footer{
+        padding: 15px 0 15px 10px;
+        font-size: 10px;
+    }
+    
+    #footer > span { 
+        padding: 0 80px 0 20px;
+    }
+    
+}
+
+
+
+
+
+
