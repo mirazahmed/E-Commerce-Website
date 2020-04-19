@@ -248,29 +248,29 @@ router.post("/productDetails/:id",isAuthenticated,(req,res)=>{
   
 });
 
-router.post("/cleanShoppingCart",(req,res)=>{
+// router.post("/cleanShoppingCart",(req,res)=>{
 
-    userModel.findOne({email:req.body.email})
-    const sgMail = require('@sendgrid/mail');
-    sgMail.setApiKey(process.env.SEND_GRID_API_KEY);    
-    const msg = {
-    to: `${email}` ,
-    from: `test@got.com`,
-    subject: "Registration to Shopper's Paradise complete",
-    html: `<strong>Welcome to SHOPPER'S PARADISE `
-    };
+//     userModel.findOne({email:req.body.email})
+//     const sgMail = require('@sendgrid/mail');
+//     sgMail.setApiKey(process.env.SEND_GRID_API_KEY);    
+//     const msg = {
+//     to: `${email}` ,
+//     from: `test@got.com`,
+//     subject: "Registration to Shopper's Paradise complete",
+//     html: `<strong>Welcome to SHOPPER'S PARADISE `
+//     };
 
-    sgMail.send(msg)
-    .then(()=>{
-        req.session.destroy();
-        res.redirect("/User/logIn"); 
-    })
-    .catch(err=>{
-        console.log(`Error ${err}`);
-    });
+//     sgMail.send(msg)
+//     .then(()=>{
+//         req.session.destroy();
+//         res.redirect("/User/logIn"); 
+//     })
+//     .catch(err=>{
+//         console.log(`Error ${err}`);
+//     });
      
      
- })
+//  })
 
 
 module.exports = router;
