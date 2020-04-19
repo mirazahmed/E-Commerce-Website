@@ -1,25 +1,31 @@
 
 
 
-<h1 id="signIn">Sign-In</h1>
 
-<form method="POST" action ="/logIn" >
+
+<h1 id="signIn">Please Sign-In</h1>
+
+<form method="POST" action ="/user/logIn" >
     <fieldset id="logInFieldset">
            
         <label for ="email">Email</label> <br>
         <input type="text" id="email" name="email"> <br> <br>
         
-        {{#each errorMessages}}
+        {{!-- {{#each errorMessages}}
         <div>{{this}}</div>
-        {{/each}}        
+        {{/each}}         --}}
         <label for ="password">Password</label><br>
-        <input type="text" id="password" name="password" placeholder="At least 6 characters"> <br> <br>
+        <input type="password" id="password" name="password" placeholder="At least 6 characters"> <br> <br>
+
+        {{#each errors}}
+             <div>{{this}}</div>
+        {{/each}}   
                 
         <a href="#">Need help?</a> <br><br>
 
         <p id="newShopper">New to SHOPPER'S PARADISE?</p> <br>
 
-        <input type="submit" id="createBut"value="Create your SHOPPER'S PARADISE account">
+        <input type="submit" id="createBut"value="LogIn">
 
     </fieldset>
 </form>

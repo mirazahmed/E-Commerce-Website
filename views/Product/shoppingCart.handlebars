@@ -1,0 +1,39 @@
+
+
+<h2 id="shoppingCart">Shopping Cart</h2>
+
+<section class="product-container">
+       
+    <table border="1" style="text-align: center;">
+        <thead>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Category</th>
+        </thead>
+        <tbody>
+                <tr>
+                   <td>
+                        <a href="" class="product-title">{{prodTitle}}</a>
+                   </td>
+                   <td>
+                       <span>{{price}}</span>
+                      
+                   </td>
+                   <td>
+                       <span>{{category}}</span>
+                      
+                   </td>
+                </tr>
+            
+                   
+    </tbody>
+    </table>
+ <div id="product-links-holder">
+    <a href="/product/display" class="addProduct">Add Product</a>
+</div>
+</section>
+
+       <br><br>
+       <form method="POST" action="/product/cleanShoppingCart">
+        <input type="submit" value="Place your order">
+    </form>

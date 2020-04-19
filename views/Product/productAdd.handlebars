@@ -1,0 +1,46 @@
+ 
+ 
+ <h2 id="addProduct">Add Product</h2>
+    
+    
+<form method="POST" action="/product/add" enctype="multipart/form-data">
+    <fieldset id="addPageFieldset">
+
+        <label for="prodTitle">Product Title</label>
+        <input type="text" id="prodTitle" name="prodTitle"><br><br>
+
+        <label for ="price">Price</label>
+        <input type="text" id="price1" name="price"><br><br>
+         
+        <label for="description">Description</label>
+        <textarea id="description" name="description"></textarea><br><br>
+
+        <label for ="category">Category</label>
+        <input type="text" id="category1" name="category"><br><br>
+          
+        <label for="quantity">Quantity</label>
+        <input type="text" name="quantity1" id="quantity"><br><br>
+    
+        <label for="bestSeller">Bestseller</label>
+        <input type="text" id="bestSeller1" name="bestSeller" > <br><br>
+
+        <label>Status</label> : Open
+       <select name="status">
+            <option value="open">Open</option>
+            <option value="hold">On Hold</option>
+            <option value="completed">Completed</option>
+        </select>
+         <br><br>
+
+        <label>File Upload</label>
+        <input type="file" name="productPic" id="productPic"> <br><br>
+        <input type="submit" value="Add Product">
+
+    </fieldset>
+
+        
+
+</form>
+
+
+    

@@ -1,0 +1,33 @@
+<h2 id="prodUpdate">Update Product</h2>
+    <form method="POST" id = "editForm" action="/product/update/{{_id}}?method=PUT">
+
+        <label>Title</label>
+        <input type="text" name="prodTitle" id="prodTitle" value="{{prodTitle}}"> <br><br>
+
+        <label>Price</label>
+        <input type ="text"  name="price" value = {{price}}><br><br>
+
+        <label>Description</label>
+        <textarea id="description" name="description">{{description}}</textarea><br><br>
+
+        <label>Category</label>
+        <input type = "text"  name="category" value ={{category}}><br><br>
+
+        <label>Quantity</label>
+        <input type ="text" id="quantity" name="quantity" value = {{quantity}}><br><br>
+
+        <label>BestSeller</label>
+        <input type = "text"  name="bestSeller" value = {{bestseller}}><br><br>
+
+        <br><br>
+
+        <label>Status</label>
+        <select name="status">
+            <option value="open">Open</option>
+            <option value="hold">On Hold</option>
+            <option value="completed">Completed</option>
+        </select>
+        <br><br>
+
+        <input type="submit" value="Update Task">
+    </form>

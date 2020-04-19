@@ -1,0 +1,50 @@
+
+<section id="prodCatAndSearch">
+<div class="d-flex justify-content-center" id="prodCatSection">
+        <a href="#" id="productCatHeading">Product Categories</a> &nbsp;
+
+        <form method="POST" action="/product/display" id="searchForm" >
+        <label id="searchLabel">Search By</label>
+        <select id="productsearch" name="productsearch" class="productSearch">
+                <option value="wristWatch">Wrist Watch</option>
+                <option value="headPhone">Headphone</option>
+                <option value="compAccessories">Computer Accessories</option>
+                <option value="jeansPants">Jeans Pants</option>
+                <option value="smartIOT">Smart IOT</option>
+                <option value="furniture">Furniture</option>
+                <option value="fashionBags">Fashion Bags</option>
+        </select>
+        <input type="submit" value="Search" class="productSearch">
+     </form> <br><br>
+</div>
+
+</section>
+    
+    <div class="container-fluid mx-0 px-0 " id ="allProductsInfo">
+        <div class="row justify-content-between mx-0">
+            
+                {{#each data}}
+                 <div class="col-md-3 justify-content-center" id ="sampleProducts">
+                     <img class="img-fluid py-3" src="/uploads/{{this.productPic}}">
+                    <a  href= "/product/productDetails/{{this.id}}"class="text-center py-3 my-0" id="title">
+                    {{this.prodTitle}}
+                    </a>
+                                        
+                    <p class="text-center" id="price">
+                        Price: {{this.price}}
+                    </p>
+                    <p class="text-center" id="category">
+                        Category: {{this.category}}
+                    </p>
+                    <p class="text-center" id="bestSeller">
+                        Best Seller: {{this.bestSeller}}
+                     </p>
+                 </div>
+
+                {{/each}}                  
+            
+        </div>
+    </div>
+
+
+

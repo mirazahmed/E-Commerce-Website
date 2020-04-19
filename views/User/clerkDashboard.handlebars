@@ -1,0 +1,60 @@
+<h2 id="clerkWelcomeMsg">Welcome to Inventory Clerk's Dashboard</h2>
+
+ <section class="product-container">
+       
+    <table border="1" style="text-align: center;">
+        <thead>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>BestSeller</th>
+                <th>Operation</th>
+        </thead>
+        <tbody>
+            {{#each data}}
+                <tr>
+                   <td>
+                        <a href="" class="product-title">{{this.prodTitle}}</a>
+                   </td>
+                   <td>
+                       <span>{{this.price}}</span>
+                      
+                   </td>
+                   <td>
+                        <span>{{this.description}}</span>
+                   </td>
+                   <td>
+                        <span>{{this.category}}</span>
+                   </td>
+                   <td>
+                        <span>{{this.quantity}}</span>
+                   </td>
+                   <td>
+                        <span>{{this.bestSeller}}</span>
+                   </td>
+                    <td>
+                        <a href="/product/edit/{{this.id}}" class="edit-delete-button">Edit</a>
+                        <a href="/product/delete/{{this.id}}?method=DELETE" class="edit-delete-button">Delete</a>
+                   </td> 
+                </tr>
+
+                {{else}}
+                    <td colspan="7">
+                        <p>No products in the database</p>
+                    </td>
+
+                {{/each}}
+    </tbody>
+    </table>
+ 
+</section>
+
+{{!-- <div id="tasks-links-holder">
+    <a href="/task/add">Add a Task</a>
+</div> --}}
+
+<div id="product-links-holder">
+    <a href="/product/add" class="addProduct">Add a Product</a>
+</div>
