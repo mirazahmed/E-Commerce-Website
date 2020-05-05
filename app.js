@@ -4,6 +4,11 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const fileUpload = require('express-fileupload');
 const session = require('express-session');
+// const shoppingCartModel = require("./models/shoppingCart");
+// const helpers = require('handlebars-helpers');
+
+
+// const shoppingCartModel = require("./models/shoppingCart");
 
 
 //load the environment variable file
@@ -16,6 +21,8 @@ const userRoutes = require("./controllers/User");
 //creation of app object
 const app = express();
 
+// const math = helpers.math();
+
 //body parser middleware
 app.use(bodyParser.urlencoded({ extended: false })); 
 
@@ -24,7 +31,34 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
 
 //set Handlebars as the Express engine for the app
-app.engine('handlebars', exphbs());
+app.engine('handlebars', exphbs(
+
+    {
+        helpers: {
+            sumTotal: function(docs){
+                let sum = 0;
+                
+                // shoppingCartModel.find()
+                // .then((docs)=>{
+                    docs.forEach(function(doc){
+                        sum = sum + doc.total;
+                        // console.log (`${sum}`);
+                    });
+                    return sum; // return total
+                    
+                // })
+                // .catch(err=>console.log(`error happened when pulling from DB${err}`));
+                                
+            }
+        }
+    }
+
+    
+   
+
+));
+
+
 app.set('view engine', 'handlebars');
 
 
@@ -58,6 +92,7 @@ app.use(session({
     saveUninitialized: true        
   }))
 
+  //Creating global variable for handlebars files to get access
   app.use((req,res,next)=>{
    
     res.locals.user= req.session.userInfo;

@@ -6,36 +6,49 @@
        
     <table border="1" style="text-align: center;">
         <thead>
+                <th></th>
                 <th>Title</th>
                 <th>Price</th>
-                <th>Category</th>
+                <th>Qty Purchased</th>
+                <th>Total</th>
         </thead>
         <tbody>
+            {{#each data}}
                 <tr>
+                    <td>
+                        <img class="img-fluid py-3" name="productPic" src="/uploads/{{this.productPic}}">
+                    </td>
                    <td>
-                        <a href="" class="product-title">{{prodTitle}}</a>
+                        <a href="" class="product-title" name="prodTitle">{{this.prodTitle}}</a>
                    </td>
                    <td>
-                       <span>{{price}}</span>
+                       <span name="price">{{this.price}}</span>
                       
                    </td>
                    <td>
-                       <span>{{category}}</span>
+                       <span name="qtyPurchased">{{this.qtyPurchased}}</span>
                       
+                   </td>
+                   <td>
+                       <span name="total">{{this.total}}</span>
                    </td>
                 </tr>
             
-                   
+            {{/each}}        
     </tbody>
     </table>
- <div id="product-links-holder">
-    <a href="/product/display" class="addProduct">Add Product</a>
-</div>
+    <div>
+        <span name="orderTotal">Order Total = {{sumTotal data}}</span>
+    </div>
+    
+    <div id="product-links-holder">
+        <a href="/product/display" class="addProduct">Add Product</a>
+    </div>
+
 </section>
 
-       <br><br>
-       <form method="POST" action="/product/cleanShoppingCart">
-        <input type="submit" value="Place your order">
-    </form>
-
+       <div>
+           <a href="/product/placeOrder"><button>Place your order</button></a>
+       </div>
+  
     

@@ -54,4 +54,3 @@ router.get('/',(req, res)=>{
 module.exports=router;
 
 
-// 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
