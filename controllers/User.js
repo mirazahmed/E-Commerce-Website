@@ -46,26 +46,7 @@ router.post("/registration",(req, res)=>{
 
     })
     .catch(err=>console.log(`Error while inserting into the data ${err}`));
-    // const {name,email,password} = req.body;
-
-    // const sgMail = require('@sendgrid/mail');
-    // sgMail.setApiKey(process.env.SEND_GRID_API_KEY);    
-    // const msg = {
-    // to: `${email}` ,
-    // from: `test@got.com`,
-    // subject: 'Registration Form Submit',
-    // // text: 'and easy to do anywhere, even with Node.js',
-    // html: `<strong>Welcome to SHOPPER'S PARADISE `,
-    // };
-
-
-    // sgMail.send(msg)
-    // .then(()=>{
-    //     res.redirect("User/userDashboard");
-    // })
-    // .catch(err=>{
-    //     console.log(`Error ${err}`);
-    // });
+    
 });
 
 
