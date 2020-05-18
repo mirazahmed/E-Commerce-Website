@@ -1,8 +1,11 @@
 {
-  "name": "Web322Assignment",
+  "name": "amazon_app",
   "version": "1.0.0",
-  "description": "",
+  "description": "E-Commerce application",
   "main": "app.js",
+  "engines": {
+      "node": "12.14.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app"
