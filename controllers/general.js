@@ -9,7 +9,7 @@ const productModel = require("../models/Product");
 
 router.get('/',(req, res)=>{
 
-    productModel.find({bestseller: 'yes'})
+    productModel.find({bestseller: 'Yes'})
     .then((products)=>{
 
     const filteredProduct = products.map((product)=>{
@@ -31,25 +31,6 @@ router.get('/',(req, res)=>{
     })
     .catch(err=>console.log(`Error happened when pulling from the DB :${err}`)); 
 });
-
-//     res.render("General/home",{
-//         title: "Home Page",
-//         headingInfo: "Home page",
-//         // products :productModel.getAllProducts(),
-//         // bestSoldItems :bestSoldModel.getbestSoldProducts()
-//     }); 
-// });
-
-// const allProductsModel = require("../model/allProduct");
-
-
-// router.get('/products',(req, res)=>{
-//     res.render("products",{
-//     title: "Products List Page",
-//     headingInfo: "Products List",
-//     allProducts: allProductsModel.getallProductsList()
-//     });
-// });
 
 module.exports=router;
 

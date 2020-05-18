@@ -112,8 +112,8 @@ router.get("/list",(req, res)=>{
     .catch(err=>console.log(`Error happened when pulling from the DB :${err}`)); 
 });
 
-//Edit route
 
+//Edit route
 router.get("/edit/:id",(req,res)=>{
 
     productModel.findById(req.params.id)
@@ -137,7 +137,7 @@ router.get("/edit/:id",(req,res)=>{
 })
 
 
-
+//update route
 router.put("/update/:id",(req,res)=>{
 
     const product = 
@@ -158,6 +158,7 @@ router.put("/update/:id",(req,res)=>{
 
 });
 
+//delete route
 router.delete("/delete/:id",(req,res)=>{
 
     productModel.deleteOne({_id:req.params.id})
@@ -168,37 +169,38 @@ router.delete("/delete/:id",(req,res)=>{
 });
 
 
+//search rout..will be implemented later
+// router.post("/display",(req,res)=>{
 
-router.post("/display",(req,res)=>{
+//     const searchValue = req.body.productsearch;
 
-    const searchValue = req.body.productsearch;
+//     productModel.find({category: searchValue})
+    
+//     .then((products)=>{
 
-    productModel.find({category: searchValue})
+//         const filteredProduct = products.map((product)=>{
     
-    .then((products)=>{
-
-        const filteredProduct = products.map((product)=>{
+//                 return{
+//                     prodTitle: product.prodTitle,
+//                     category: product.category,
+//                     quantity: product.quantity,
+//                     bestSeller: product.bestseller,
+//                     productPic: product.productPic
+//                 }
     
-                return{
-                    prodTitle: product.prodTitle,
-                    category: product.category,
-                    quantity: product.quantity,
-                    bestSeller: product.bestseller,
-                    productPic: product.productPic
-                }
+//             });
     
-            });
-    
-            res.render("Product/productSearch",{
-                 data : filteredProduct
-            });
+//             res.render("Product/productSearch",{
+//                  data : filteredProduct
+//             });
             
-        })
-        .catch(err=>console.log(`Error happened when pulling from the DB :${err}`)); 
+//         })
+//         .catch(err=>console.log(`Error happened when pulling from the DB :${err}`)); 
 
    
-})
+// })
 
+//product Details rout
 router.get("/productDetails/:id",isAuthenticated,(req,res)=>{
 
     productModel.findById(req.params.id)
@@ -223,6 +225,8 @@ router.get("/productDetails/:id",isAuthenticated,(req,res)=>{
   
 });
 
+
+//Product Details POST rout
 router.post("/productDetails/:id",isAuthenticated,(req,res)=>{
 
     productModel.findById(req.params.id)
@@ -244,12 +248,11 @@ router.post("/productDetails/:id",isAuthenticated,(req,res)=>{
     .then(()=>{
         res.redirect("/product/shoppingCart");
     })
-    .catch(err=>console.log(`error happened while inserting shoppingCart item ${err}`));
-
-    
+    .catch(err=>console.log(`error happened while inserting shoppingCart item ${err}`));  
   
 });
 
+//Shopping Cart rout
  router.get("/shoppingCart",isAuthenticated,(req,res)=>{
 
     shoppingCartModel.find()
@@ -278,12 +281,14 @@ router.post("/productDetails/:id",isAuthenticated,(req,res)=>{
     
 })
 
+
+//Order placement
 router.get("/placeOrder",isAuthenticated,(req,res)=>{
 
     shoppingCartModel.find()
     .then(shoppingCartItems=>{
 
-        const filteredProduct = shoppingCartItems.map((shoppingCartItem)=>{
+        const filteredProducts = shoppingCartItems.map((shoppingCartItem)=>{
 
             return{
                 prodTitle: shoppingCartItem.prodTitle,
@@ -294,62 +299,68 @@ router.get("/placeOrder",isAuthenticated,(req,res)=>{
 
         });
 
-        let sumTotal = 0;
+        let sumTotal = 0;         
         let userEmail = req.session.userInfo.email;
-       
-        
-        for(let i = 0;i<filteredProduct.length;i++){
-            sumTotal = sumTotal+filteredProduct[i].total;
-            }
+        let str = "";
+                    
 
-            const sgMail = require('@sendgrid/mail');
-            sgMail.setApiKey(process.env.EMAIL_API_KEY);    
-            const msg = {
-            to: `mrzdu1998@gmail.com`,
-            from: `mahmed175@myseneca.ca`,
-            subject: "Product Invoice",
-            html: 
-                `<table>
-                <tr>
-                    <th>Product Title</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Product Total</th>
-                    <th>Order Total</th>
-                </tr>
-                <tr>
-                    <th>${filteredProduct.prodTitle}</th>
-                </tr>
-                <tr>
-                    <th>${filteredProduct.price}</th>
-                </tr>
-                <tr>
-                    <th> ${filteredProduct.qtyPurchased}</th>
-                </tr>
-                <tr>
-                    <th> ${filteredProduct.total}</th>
-                </tr>
-                <tr>
-                    <th> ${sumTotal}</th>
-                </tr>
-                `
+        for(let i = 0;i<filteredProducts.length;i++){
+            sumTotal = sumTotal+filteredProducts[i].total;
+            str += `<tr><td>${filteredProducts[i].prodTitle}</td><td>${filteredProducts[i].price}</td>
+              <td>${filteredProducts[i].qtyPurchased}</td><td>${filteredProducts[i].total}</td></tr>`;
             };
-
+       
+            
+            const sgMail = require('@sendgrid/mail');
+            sgMail.setApiKey(process.env.EMAIL_API_KEY);
+            
+            
+                const msg = {
+                    to: `${userEmail}`,
+                    from: `mahmed175@myseneca.ca`,
+                    subject: "Product Invoice",
+                    html: 
+                    
+                        `
+                        <html>
+                        <body>
+                        <p>Thank you ${req.session.userInfo.firstName}  ${req.session.userInfo.lastName} for your purchase.<br> 
+                        Here is your invoice</p>
+                        <table>
+                        <tr>
+                            <th>Product Title</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Product Total</th>
+                        </tr>
+                            ${str}   
+                        </table> 
+                            Order Total: ${sumTotal}
+                        </body>
+                        </html>
+                       `                   
+                };    
+                                                  
             sgMail.send(msg)
             .then(()=>{
-                req.session.destroy();
-                res.redirect("/User/logout"); 
-            })
+                               
+                    shoppingCartModel.deleteMany()
+                    .then(()=>{
+                        req.session.destroy();
+                        res.redirect("/User/logout"); 
+                    })
+                    
+                    .catch(err=>console.log(`Error happened when deleting from the DB :${err}`)); 
+                    })
 
             .catch(err=>{
-                console.log(`Error ${err}`);
-            });
-
+                console.log(`Error sending email ${err}`);
+            });    
+     
     })
            
-        .catch(err=>console.log(`error happened while pulling shoppingCart item  from DB ${err}`));
-
-    
+    .catch(err=>console.log(`error happened while pulling shoppingCart item  from DB ${err}`));
+   
    
  })
 

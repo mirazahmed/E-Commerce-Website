@@ -2,8 +2,10 @@
 
  <section class="product-container">
        
-    <table border="1" style="text-align: center;">
-        <thead>
+    {{!-- <table border="1" style="text-align: center;"> --}}
+    <table class="table table-hover table-bordered">
+        <thead class="thead-dark">
+            <tr>
                 <th>Title</th>
                 <th>Price</th>
                 <th>Description</th>
@@ -11,10 +13,11 @@
                 <th>Quantity</th>
                 <th>BestSeller</th>
                 <th>Operation</th>
+            </tr>               
         </thead>
         <tbody>
             {{#each data}}
-                <tr>
+                <tr class="success">
                    <td>
                         <a href="" class="product-title">{{this.prodTitle}}</a>
                    </td>
