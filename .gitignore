@@ -1,3 +1,4 @@
 node_modules
 report
 config/keys.env
+productSearch.handlebars
