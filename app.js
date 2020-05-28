@@ -10,7 +10,7 @@ const session = require('express-session');
 //load the environment variable file
 require('dotenv').config({path:"./config/keys.env"});
 
-const productRoutes = require("./controllers/products");
+const productRoutes = require("./controllers/Products");
 const generalRoutes = require("./controllers/General");
 const userRoutes = require("./controllers/User");
 
