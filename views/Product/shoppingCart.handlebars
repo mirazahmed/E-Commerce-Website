@@ -38,18 +38,21 @@
             {{/each}}        
     </tbody>
     </table>
-    <div>
+    <div id="orderTotal">
         <span name="orderTotal">Order Total = {{sumTotal data}}</span>
     </div>
     
-    <div id="product-links-holder">
-        <a href="/product/display" class="addProduct">Add Product</a>
+    <div class="text-center">
+        {{!-- id="product-links-holder" --}}
+        <a href="/product/display" id="orderPlaceBtn" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Add a Product</a>
+        {{!-- <a href="/product/display" class="addProduct">Add a Product</a> --}}
     </div>
 
 </section>
 
-       <div>
-           <a href="/product/placeOrder"><button>Place your order</button></a>
+       <div class="text-center">
+           <a href="/product/placeOrder" id="orderPlaceBtn" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Place your order</a>
+           {{!-- <a href="/product/placeOrder"><button>Place your order</button></a> --}}
        </div>
   
-    
+  

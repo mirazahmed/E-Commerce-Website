@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-md navbar-dark py-0 fixed-top" id="mainNavbar">
+        <span id="logo">
+            <i class="fab fa-amazon"></i>
+            <a class="navbar-brand" id="shoopersParadise" href="/">Shopper's Paradise</a>
+        </span>
+            
+        <button class="navbar-toggler bg-danger" type="button" data-toggle="collapse" data-target="#navLinks" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle Navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navLinks">
+            <ul class="navbar-nav">
+                {{#if user}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/User/logout">Logout</a>
+                    </li>
+                {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/product/display">All Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/User/logIn">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/User/registration">Register</a>
+                    </li>
+                {{/if}}
+                                              
+            </ul>
+        </div>
+    </nav>

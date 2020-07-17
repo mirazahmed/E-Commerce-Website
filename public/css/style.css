@@ -133,20 +133,15 @@ font-size: 50px;
 
 /* Registration Page */
 
+#regForm{
+    padding-bottom: 18px;
+}
+
 #createAccount{
-    margin: 60px 0 20px 0;
+    margin: 70px 0 30px 0;
     text-align: center;
-}
-#regFieldset{
-    margin: 0 300px 0px 300px;
-    padding: 10px 0 60px 0;
-    font-size: 14px;
-    text-align: center;
-}
-#submitBut{
-    background: #e8b5b8;
-    font-size: 12px;
-}
+ }
+
 #termsCondition{
     font-size: 10px;
 }
@@ -156,35 +151,27 @@ font-size: 50px;
 
 
 /* log in page */
+
+#loginForm{
+    padding: 100px 20px 110px 20px;
+    text-align: center;
+}
 #signIn{
-    margin: 130px 0 20px 0;
+    margin: 90px 0 10px 0;
     text-align: center;
-}
-#logInFieldset{
-    margin: 0 300px 0 300px;
-    padding: 30px 0 110px 0;
-    font-size: 14px;
-    text-align: center;
-}
-#createBut{
-    background: #e8b5b8;
-    font-size: 12px;
 }
 
-#newShopper{
-    font-size: 10px;
-}
 
 /* footer Section */
 #footer{
-    padding: 30px 0 30px 20px;
+    /* padding: 30px 0 30px 20px; */
     background-color: #f2a0a0;
     color: #2e2626;
-    font-size: 15px;
+    font-size: 13px;
     flex-shrink: none;
 }
 
-#footer > span{
+#socialMediaLink{
     text-align: center;
     padding: 0 180px 0 30px;
     color: white;
@@ -203,10 +190,10 @@ font-size: 50px;
 }
 
 /* producatAdd page */
-#addProduct{
+/* #addProduct{
     margin: 60px 0 20px 0;
     text-align: center;
-}
+} */
 #addPageFieldset{
     margin: 0 300px 0px 300px;
     padding: 10px 0 60px 0;
@@ -222,11 +209,13 @@ font-size: 50px;
 
 .product-container{
     margin: 0 300px 0px 300px;
-    padding: 50px 0 60px 0;
+    padding: 50px 0 20px 0;
     font-size: 14px;
     text-align: center;
 }
-
+#addProductBtn{
+    padding-bottom: 30px;
+}
 
 .addProduct{
     margin: 0 300px 0px 300px;
@@ -282,9 +271,18 @@ font-size: 50px;
 
 /*user Email in shoppingCart file*/
 
-#userEmail{
-    display: none;
+#orderPlaceBtn{
+margin-bottom: 20px;
 }
+
+
+#orderTotal{
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+/* #userEmail{
+    display: none;
+} */
 /* media query */
 @media(max-width: 895px){
     .fa-amazon{
