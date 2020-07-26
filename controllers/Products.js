@@ -1,9 +1,12 @@
 const express = require('express')
 const router = express.Router();
 const path = require("path");
+// const userModel = require("../models/User");
 const productModel = require("../models/Product");
 const shoppingCartModel = require("../models/shoppingCart");
 const isAuthenticated = require("../middleware/auth");
+const { isMaster } = require('cluster');
+const { isArray } = require('util');
 
 
 router.get("/add",(req,res)=>{
@@ -234,13 +237,21 @@ router.post("/productDetails/:id",isAuthenticated,(req,res)=>{
 
     const{prodTitle,productPic,price,description} = product
 
+    let qtyPurchased = req.body.addQty;
+    let total = price * req.body.addQty;
+    let user = {
+        id: req.session.userInfo._id
+        // username: req.session.userInfo.
+    };
+
     const shoppingCartItem = {
         prodTitle : prodTitle,
         productPic : productPic,
         price : price,
         description : description,
-        qtyPurchased : req.body.addQty,
-        total : price * req.body.addQty,
+        qtyPurchased : qtyPurchased,
+        total : total,
+        user : user
     }
 
     const shoppingItem = new shoppingCartModel(shoppingCartItem);
@@ -250,42 +261,40 @@ router.post("/productDetails/:id",isAuthenticated,(req,res)=>{
     })
     .catch(err=>console.log(`error happened while inserting shoppingCart item ${err}`));  
   
-});
+    });
+})
 
 //Shopping Cart rout
- router.get("/shoppingCart",isAuthenticated,(req,res)=>{
-
-    shoppingCartModel.find()
-    .then(shoppingCartItems=>{
-
-        const filteredProduct = shoppingCartItems.map((shoppingCartItem)=>{
-
-            return{
-                productPic: shoppingCartItem.productPic,
-                prodTitle: shoppingCartItem.prodTitle,
-                price: shoppingCartItem.price,
-                description: shoppingCartItem.description,
-                qtyPurchased: shoppingCartItem.qtyPurchased,
-                total: shoppingCartItem.total
-            }
-
-        });
-
-        res.render("Product/shoppingCart",{
-            data : filteredProduct
-         });
-
-        })
-        .catch(err=>console.log(`error happened while pulling shoppingCart item  from DB ${err}`));
-    });
+router.get("/shoppingCart",isAuthenticated,(req,res)=>{
+         
+    shoppingCartModel.find({"user.id":req.session.userInfo._id})
+        .then(shoppingCartItems=>{
+        
+                const filteredProduct = shoppingCartItems.map((shoppingCartItem)=>{            
+                    return{
+                    productPic: shoppingCartItem.productPic,
+                    prodTitle: shoppingCartItem.prodTitle,
+                    price: shoppingCartItem.price,
+                    description: shoppingCartItem.description,
+                    qtyPurchased: shoppingCartItem.qtyPurchased,
+                    total: shoppingCartItem.total
+                    }               
+                });
+        
+                res.render("Product/shoppingCart",{
+                    data : filteredProduct
+                 });  
+    })
+    .catch(err=>console.log(`error happened while pulling shoppingCart item  from DB ${err}`));
+});
     
-})
+
 
 
 //Order placement
 router.get("/placeOrder",isAuthenticated,(req,res)=>{
 
-    shoppingCartModel.find()
+    shoppingCartModel.find({"user.id":req.session.userInfo._id})
     .then(shoppingCartItems=>{
 
         const filteredProducts = shoppingCartItems.map((shoppingCartItem)=>{
@@ -344,12 +353,11 @@ router.get("/placeOrder",isAuthenticated,(req,res)=>{
             sgMail.send(msg)
             .then(()=>{
                                
-                    shoppingCartModel.deleteMany()
+                    shoppingCartModel.deleteMany({"user.id":req.session.userInfo._id})
                     .then(()=>{
                         req.session.destroy();
                         res.redirect("/User/logout"); 
-                    })
-                    
+                    })                    
                     .catch(err=>console.log(`Error happened when deleting from the DB :${err}`)); 
                     })
 
