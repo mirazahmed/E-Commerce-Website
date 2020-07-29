@@ -39,6 +39,14 @@ const shoppingCartSchema = new Schema({
         type:Number,
         required: true
     },
+
+    user:{
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
+        
+    }
     
 });
 

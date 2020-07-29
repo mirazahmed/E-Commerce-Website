@@ -1,14 +1,14 @@
 
-
-<section id="adminDashboard">
+<div class="container text-center">
+    
     <h1> Welome Administrator : {{user.firstName}} {{user.lastName}}</h1>
+    
+    <img class="img-fluid rounded max-width:100%" alt="Responsive image" src="/uploads/{{user.profilePic}}" id="profilePic"> 
 
-<!-- User Profile pic will go here-->
-<img src="/uploads/{{user.profilePic}}" class="profilePic"> 
+    <div id="prodListBtn">
+        <a href="/product/list" class="btn btn-info btn-sm" role="button" aria-pressed="true">List of created products</a>
+        {{!-- <a href="/product/list">List of created products</a> --}}
+    </div>
 
-<div>
-    <a href="/product/list">List of created products</a>
 </div>
-
-</section>
 

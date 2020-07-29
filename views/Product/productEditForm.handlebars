@@ -1,37 +1,69 @@
 
+<div class="container">
 
-<h2 id="prodUpdate">Update Product</h2>
-    <form method="POST" id = "editForm" action="/product/update/{{_id}}?method=PUT">
+    <h2 id="prodUpdate">Update Product</h2>
 
-        <label>Title</label>
-        <input type="text" name="prodTitle" id="prodTitle" value="{{prodTitle}}"> <br><br>
+    <form method="POST" action="/product/update/{{_id}}?method=PUT" enctype="multipart/form-data">
 
-        <label>Price</label>
-        <input type ="text"  name="price" value = {{price}}><br><br>
+    <div class="form-row justify-content-center">
+        <div class="form-group col-md-3 text-center">
+            <label for="title">Title</label>
+            <input type="text" name="prodTitle" class="form-control text-center" id="prodTitle" value="{{prodTitle}}">
+        </div>        
+    </div>
 
-        <label>Description</label>
-        <textarea id="description" name="description">{{description}}</textarea><br><br>
+    <div class="form-row justify-content-center">
+        <div class="form-group col-md-3 text-center">
+            <label for="price">Price</label>
+            <input type ="text"  name="price" class="form-control text-center" value = {{price}}>
+        </div>        
+    </div>
 
-        <label>Category</label>
-        <input type = "text"  name="category" value ={{category}}><br><br>
+    <div class="form-row justify-content-center">
+        <div class="form-group col-md-3 text-center">
+            <label for="description">Description</label>
+            <textarea id="description" class="form-control" name="description">{{description}}</textarea>
+        </div>
+    </div>        
 
-        <label>Quantity</label>
-        <input type ="text" id="quantity" name="quantity" value = {{quantity}}><br><br>
+    <div class="form-row justify-content-center">
+        <div class="form-group col-md-3 text-center">
+            <label for="category">Category</label>
+            <input type = "text"  name="category" class="form-control text-center" value ={{category}}>
+        </div>
+    </div>    
 
-        <label>BestSeller</label>
-        <input type = "text"  name="bestSeller" value = {{bestseller}}><br><br>
+    <div class="form-row justify-content-center">
+        <div class="form-group col-md-3 text-center">
+            <label>Quantity</label>
+            <input type ="text" id="quantity" class="form-control text-center" name="quantity" value = {{quantity}}>
+        </div>
+    </div>
 
-        <br><br>
+    <div class="form-row justify-content-center">
+        <div class="form-group col-md-3 text-center">
+            <label>BestSeller</label>
+            <input type = "text"  class="form-control text-center" name="bestSeller" value = {{bestseller}}>
+        </div>
+    </div> 
 
-        <label>Status</label>
-        <select name="status">
-            <option value="open">Open</option>
-            <option value="hold">On Hold</option>
-            <option value="completed">Completed</option>
-        </select>
-        <br><br>
+    <div class="form-row justify-content-center">
+        <div class="col-auto my-1 text-center">
+            <label class="mr-sm-2" for="status">Status</label>
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Choose...</option>
+                <option value="open">Open</option>
+                <option value="hold">On Hold</option>
+                <option value="completed">Completed</option>
+            </select>
+        </div>
+    </div>
 
-        <input type="submit" value="Update Task">
-    </form>
+    <div class="text-center">
+            <button class="btn btn-primary btn-sm" type="submit">Update Product</button>
+    </div>
+        
+   </form>
+</div>
 
     

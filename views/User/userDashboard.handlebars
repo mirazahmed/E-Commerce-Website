@@ -1,16 +1,20 @@
 
+{{!-- <div class="container display-content-center"> --}}
+    <div class="container text-center">
+        <h1> Welome  {{user.firstName}} {{user.lastName}} </h1>
+    
+        <img class="img-fluid  rounded max-width:100%" alt="Responsive image"src="/uploads/{{user.profilePic}}" id="profilePic"> 
 
-<section id="userDashboard">
-    <h1> Welome  {{user.firstName}} {{user.lastName}} </h1>
+        <div id="prodDispBtn">
+            <a href="/product/display" class="btn btn-info btn-sm" role="button" aria-pressed="true">Click to See all the products</a>
+            {{!-- <a href="/product/display">Click to See all the products </a> --}}
+        </div>
 
-<!-- User Profile pic will go here-->
-    <img src="/uploads/{{user.profilePic}}" class="profilePic"> 
+        <div>
+            <a href="/product/shoppingCart" class="btn btn-info btn-sm" role="button" aria-pressed="true">My Shopping Cart</a>
+            {{!-- <a href="/product/shoppingCart">My Shopping Cart</a> --}}
+        </div>
+    </div>
 
-<div>
-    <a href="/product/display">Click to See all the products </a>
-</div>
+{{!-- </div> --}}
 
-<div>
-    <a href="/product/shoppingCart">My Shopping Cart</a>
-</div>
-</section>

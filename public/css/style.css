@@ -1,3 +1,7 @@
+/* html,body {
+    height:100%;
+    width: 100%;
+} */
 
 *{
     padding: 0;
@@ -153,28 +157,23 @@ font-size: 50px;
 /* log in page */
 
 #loginForm{
-    padding: 100px 20px 110px 20px;
+    /* padding: 100px 20px 110px 20px; */
     text-align: center;
 }
 #signIn{
     margin: 90px 0 10px 0;
     text-align: center;
 }
-
-
-/* footer Section */
-#footer{
-    /* padding: 30px 0 30px 20px; */
-    background-color: #f2a0a0;
-    color: #2e2626;
-    font-size: 13px;
-    flex-shrink: none;
-}
+#sticky-footer {
+    
+    background-color: #ebb7d5;
+    
+  }
 
 #socialMediaLink{
     text-align: center;
-    padding: 0 180px 0 30px;
-    color: white;
+    /* padding: 0 180px 0 30px; */
+    /* color: white; */
 }
 
 .facebook {
@@ -201,63 +200,50 @@ font-size: 50px;
     text-align: center;
 }
 
-/* clerkDashboard Page */
-#clerkWelcomeMsg{
-    margin: 60px 0 20px 0;
-    text-align: center;
+#addProduct{
+    margin-bottom: 20px;
 }
 
-.product-container{
-    margin: 0 300px 0px 300px;
-    padding: 50px 0 20px 0;
-    font-size: 14px;
-    text-align: center;
-}
-#addProductBtn{
-    padding-bottom: 30px;
+#orderPlaceBtn{
+    margin-bottom: 20px;
 }
 
-.addProduct{
-    margin: 0 300px 0px 300px;
-    /* padding: 50px 0 60px 0; */
-    font-size: 14px;
-    text-align: center;
-}
+
 /*Edit Form Page*/
 
 #prodUpdate{
-    margin: 60px 0 20px 0;
+    /* margin: 20px 0 20px 0; */
     text-align: center;
 }
 
-#editForm{
+/* #editForm{
     margin: 0 300px 0px 300px;
     padding: 50px 0 60px 0;
     font-size: 14px;
     text-align: center;
-}
+} */
 
 /* adminDashboard page */
-#adminDashboard{
+/* #adminDashboard{
 
     margin: 0 300px 0px 300px;
     padding: 50px 0 60px 0;
     font-size: 14px;
     text-align: center;
-}
+} */
 
 /* userDashboard page */
-
-#userDashboard{
-    margin: 0 300px 0px 300px;
-    padding: 50px 0 60px 0;
-    font-size: 14px;
-    text-align: center;
-
+#prodDispBtn{
+    margin: 20px 20px;   
 }
 
-.profilePic{
-    width: 50%
+
+#prodListBtn{
+margin-top: 20px;
+}
+
+#profilePic{
+    width: 40%
 }
 
 
@@ -284,76 +270,4 @@ margin-bottom: 20px;
     display: none;
 } */
 /* media query */
-@media(max-width: 895px){
-    .fa-amazon{
-        font-size: 1.5rem;
-        }
-        
-        #shoopersParadise{        
-         font-size: 1.8rem; 
-         }
-
-        .promotionMsg{
-            font-size: 20px;
-        }
-
-        #prodCatSection{
-           padding: 15px;
-           font-size: 20px;
-        }
-        
-        
-        /*log in page*/
-        #logInFieldset{
-            margin-left: 150px;
-            margin-right: 150px;
-            font-size: 12px;
-            padding: 50px 0 145px 0;         
-        }
-        #createBut{
-            font-size: 10px;
-        }
-        #newShopper{
-            font-size: 10x;
-        }
-
-
-        /*Registration page*/
-
-        #createAccount{
-            margin: 100px 0 25px 0;
-        }
-        #regFieldset{
-            margin: 0 150px 0 150px;
-            padding: 27px 0 70px 0;
-            font-size: 11px;
-        }
-        #submitBut{
-          font-size: 10px;
-        }
-        #termsCondition{
-            font-size: 9px;
-        }
-        #accountHolder{
-            font-size: 10px;
-        }
-
-}
-
-@media(max-width: 897px) {
-    #footer{
-        padding: 15px 0 15px 10px;
-        font-size: 10px;
-    }
-    
-    #footer > span { 
-        padding: 0 80px 0 20px;
-    }
-    
-}
-
-
-
-
-
 
