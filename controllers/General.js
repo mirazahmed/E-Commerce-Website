@@ -16,7 +16,6 @@ router.get('/',(req, res)=>{
 
             return{
                 prodTitle: product.prodTitle,
-                category: product.category,
                 quantity: product.quantity,
                 bestSeller: product.bestseller,
                 productPic: product.productPic
