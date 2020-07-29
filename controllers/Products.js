@@ -7,6 +7,7 @@ const shoppingCartModel = require("../models/shoppingCart");
 const isAuthenticated = require("../middleware/auth");
 const { isMaster } = require('cluster');
 const { isArray } = require('util');
+const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 
 
 router.get("/add",(req,res)=>{
@@ -84,8 +85,6 @@ router.get("/display",(req,res)=>{
 //clerkDashboard Route
 router.get("/list",(req, res)=>{
 
-
-
     productModel.find()
     .then((products)=>{
 
@@ -103,7 +102,6 @@ router.get("/list",(req, res)=>{
             }
 
         });
-
 
         res.render("User/clerkDashboard",{
             data : filteredProduct
@@ -272,6 +270,7 @@ router.get("/shoppingCart",isAuthenticated,(req,res)=>{
         
                 const filteredProduct = shoppingCartItems.map((shoppingCartItem)=>{            
                     return{
+                    id: shoppingCartItem._id,
                     productPic: shoppingCartItem.productPic,
                     prodTitle: shoppingCartItem.prodTitle,
                     price: shoppingCartItem.price,
@@ -288,7 +287,16 @@ router.get("/shoppingCart",isAuthenticated,(req,res)=>{
     .catch(err=>console.log(`error happened while pulling shoppingCart item  from DB ${err}`));
 });
     
+//shoppingCartItem delete
 
+router.delete("/shoppingCart/delete/:id",(req,res)=>{
+// "/delete/:id"
+    shoppingCartModel.deleteOne({_id:req.params.id})
+    .then(()=>{
+        res.redirect("/product/shoppingCart");
+    })
+    .catch(err=>console.log(`Error happened when deleting from the DB :${err}`)); 
+});
 
 
 //Order placement

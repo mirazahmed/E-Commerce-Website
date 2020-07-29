@@ -1,22 +1,27 @@
-<section class="product-container">
 
-    <h2 id="shoppingCart">{{user.firstName}} {{user.lastName}}'s Shopping Cart</h2>   
-    <table class="table table-hover table-bordered">
+
+<div class="container" id="product-container">
+
+    <h2 class="text-center" id="shoppingCart">{{user.firstName}} {{user.lastName}}'s Shopping Cart</h2>   
+    
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
         <thead class="thead-dark">
                 <th></th>
                 <th>Title</th>
                 <th>Price</th>
-                <th>Qty Purchased</th>
-                <th>Total</th>
+                <th>Quantity</th>
+                <th>Total</th>  
+                <th>Edit/Delete</th>              
         </thead>
         <tbody>
             {{#each data}}
                 <tr>
                     <td>
-                        <img class="img-fluid py-3" name="productPic" src="/uploads/{{this.productPic}}">
+                        <img class="img-fluid py-2" name="productPic" src="/uploads/{{this.productPic}}">
                     </td>
                    <td>
-                        <a href="" class="product-title" name="prodTitle">{{this.prodTitle}}</a>
+                        <span class="product-title" name="prodTitle">{{this.prodTitle}}</span>
                    </td>
                    <td>
                        <span name="price">{{this.price}}</span>
@@ -29,26 +34,35 @@
                    <td>
                        <span name="total">{{this.total}}</span>
                    </td>
+                   <td>                       
+                       <a href="#" class="btn btn-warning btn-sm" role="button" aria-pressed="true">Edit</a>
+                        <a href="/product/shoppingCart/delete/{{this.id}}?method=DELETE" class="btn btn-danger btn-sm" role="button" aria-pressed="true">Del</a>                       
+                    </td>
                 </tr>
             
             {{/each}}        
-    </tbody>
+        </tbody>
     </table>
-    <div id="orderTotal">
+  
+    </div>
+
+    <div id="orderTotal" class="text-center">
         <span name="orderTotal">Order Total = {{sumTotal data}}</span>
     </div>
     
     <div class="text-center">
         {{!-- id="product-links-holder" --}}
-        <a href="/product/display" id="orderPlaceBtn" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Add a Product</a>
+        <a href="/product/display" id="addProduct" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Add a Product</a>
         {{!-- <a href="/product/display" class="addProduct">Add a Product</a> --}}
     </div>
 
-</section>
-
-       <div class="text-center">
+    <div class="text-center">
            <a href="/product/placeOrder" id="orderPlaceBtn" class="btn btn-success btn-sm active" role="button" aria-pressed="true">Place your order</a>
            {{!-- <a href="/product/placeOrder"><button>Place your order</button></a> --}}
-       </div>
+    </div>
+
+</div>
+
+       
   
   
