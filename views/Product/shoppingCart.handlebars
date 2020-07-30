@@ -35,7 +35,8 @@
                        <span name="total">{{this.total}}</span>
                    </td>
                    <td>                       
-                       <a href="#" class="btn btn-warning btn-sm" role="button" aria-pressed="true">Edit</a>
+                        <a href="/product/shoppingCart/edit/{{this.id}}" class="btn btn-warning btn-sm" role="button" aria-pressed="true">Edit</a>
+                        {{!-- <a href="/product/edit/{{this.id}}" class="btn btn-warning btn-sm active" role="button" aria-pressed="true">Edit</a> --}}
                         <a href="/product/shoppingCart/delete/{{this.id}}?method=DELETE" class="btn btn-danger btn-sm" role="button" aria-pressed="true">Del</a>                       
                     </td>
                 </tr>

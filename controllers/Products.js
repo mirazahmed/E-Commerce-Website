@@ -1,13 +1,12 @@
 const express = require('express')
 const router = express.Router();
 const path = require("path");
-// const userModel = require("../models/User");
 const productModel = require("../models/Product");
 const shoppingCartModel = require("../models/shoppingCart");
 const isAuthenticated = require("../middleware/auth");
-const { isMaster } = require('cluster');
-const { isArray } = require('util');
-const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
+// const { isMaster } = require('cluster');
+// const { isArray } = require('util');
+// const { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } = require('constants');
 
 
 router.get("/add",(req,res)=>{
@@ -82,7 +81,7 @@ router.get("/display",(req,res)=>{
 
 
 
-//clerkDashboard Route
+//Product Inventory Route
 router.get("/list",(req, res)=>{
 
     productModel.find()
@@ -103,7 +102,7 @@ router.get("/list",(req, res)=>{
 
         });
 
-        res.render("User/clerkDashboard",{
+        res.render("Product/productInventory",{
             data : filteredProduct
 
         });
@@ -286,10 +285,56 @@ router.get("/shoppingCart",isAuthenticated,(req,res)=>{
     })
     .catch(err=>console.log(`error happened while pulling shoppingCart item  from DB ${err}`));
 });
-    
-//shoppingCartItem delete
+  
+//ShoppingCart Edit route
+router.get("/shoppingCart/edit/:id",isAuthenticated,(req,res)=>{
 
-router.delete("/shoppingCart/delete/:id",(req,res)=>{
+    shoppingCartModel.findById(req.params.id)
+    .then((shoppingCartItem)=>{
+
+        const{_id,productPic,prodTitle,price,description,quantity,addQty,total} = shoppingCartItem;
+        res.render("Product/shoppingCartEdit",{
+            _id,
+            productPic,
+            prodTitle,
+            price,
+            description,
+            quantity,
+            addQty,
+            total
+        });
+    })
+    .catch(err=>console.log(`Error happened when editing shopping cart from the DB :${err}`));     
+})
+
+//shoppingCart update route
+router.put("/shoppingCart/update/:id",isAuthenticated,(req,res)=>{
+
+    shoppingCartModel.findById(req.params.id)
+    .then((shoppingCartItem)=>{
+        // console.log(shoppingCartItem.price);
+        // const price = shoppingCartItem.price;
+        const updatedCartItem = 
+        {            
+            qtyPurchased: req.body.qtyPurchased,
+            total: shoppingCartItem.price * req.body.qtyPurchased
+        }
+
+        shoppingCartModel.updateOne({_id:req.params.id},updatedCartItem)
+        .then(()=>{
+            res.redirect("/product/shoppingCart");
+            })
+
+        .catch(err=>console.log(`Error happened when updating shoppingCart from the DB :${err}`)); 
+
+        })
+    // .catch(err=>console.log(`Error happened when editing shopping cart from the DB :${err}`));
+    
+});
+
+
+//shoppingCartItem delete
+router.delete("/shoppingCart/delete/:id",isAuthenticated,(req,res)=>{
 // "/delete/:id"
     shoppingCartModel.deleteOne({_id:req.params.id})
     .then(()=>{

@@ -2,11 +2,6 @@ const express = require('express')
 const router = express.Router();
 const productModel = require("../models/Product");
 
-// const productModel = require("../models/producct");
-// const bestSoldModel = require("../models/bestSeller");
-
-
-
 router.get('/',(req, res)=>{
 
     productModel.find({bestseller: 'Yes'})
