@@ -1,47 +1,80 @@
  
- 
+ <div class="container">
 
- <h2 id="addProduct">Add Product</h2>
-    
-    
-<form method="POST" action="/product/add" enctype="multipart/form-data">
-    <fieldset id="addPageFieldset">
+     <h2 class="text-center">Add Product</h2>   
 
-        <label for="prodTitle">Product Title</label>
-        <input type="text" id="prodTitle" name="prodTitle"><br><br>
-
-        <label for ="price">Price</label>
-        <input type="text" id="price1" name="price"><br><br>
-         
-        <label for="description">Description</label>
-        <textarea id="description" name="description"></textarea><br><br>
-
-        <label for ="category">Category</label>
-        <input type="text" name="category" id="category1" ><br><br>
-          
-        <label for="quantity">Quantity</label>
-        <input type="text" name="quantity" id="quantity1"><br><br>
-    
-        <label for="bestSeller">Bestseller</label>
-        <input type="text" name="bestSeller" id="bestSeller1"  > <br><br>
-
-        <label>Status</label> : Open
-       <select name="status">
-            <option value="open">Open</option>
-            <option value="hold">On Hold</option>
-            <option value="completed">Completed</option>
-        </select>
-         <br><br>
-
-        <label>File Upload</label>
-        <input type="file" name="productPic" id="productPic"> <br><br>
-        <input type="submit" value="Add Product">
-
-    </fieldset>
-
+    <form method="POST" action="/product/add" enctype="multipart/form-data">
+        <div class="form-row justify-content-center">
+            <div class="form-group col-md-3 text-center">
+                <label for="prodTitle">Product Title</label>
+                <input type="text" class="form-control text-center" name="prodTitle">
+            </div>
+        </div>
         
+        <div class="form-row justify-content-center">
+            <div class="form-group col-md-3 text-center">
+                <label for ="price">Price</label>
+                <input type="text" class="form-control text-center" name="price">
+            </div>    
+        </div>
+            
+        <div class="form-row justify-content-center">
+            <div class="form-group col-md-3 text-center">
+                <label for="description">Description</label>
+                <textarea class="form-control" name="description"></textarea>
+            </div>
+        </div>
 
-</form>
+        <div class="form-row justify-content-center">
+            <div class="form-group col-md-3 text-center">
+                <label for ="category">Category</label>
+            <input type="text"class="form-control text-center" name="category">
+            </div>
+        </div>
+
+        <div class="form-row justify-content-center">
+            <div class="form-group col-md-3 text-center">
+                <label for="quantity">Quantity</label>
+                <input type="text" class="form-control text-center" name="quantity">
+            </div>
+        </div>            
+            
+
+        <div class="form-row justify-content-center">
+            <div class="form-group col-md-3 text-center">
+                <label for="bestSeller">Bestseller</label>
+                <input type="text" class="form-control text-center" name="bestSeller"> 
+            </div>
+        </div>
+
+
+        <div class="form-row justify-content-center">
+            <div class="col-auto my-1 text-center">             
+                <label class="mr-sm-2"for="status">Status</label>
+                <select class="custom-select mr-sm-2" name="status">
+                    <option value="open">Open</option>
+                    <option value="hold">On Hold</option>
+                    <option value="completed">Completed</option>
+                </select>       
+            </div>
+        </div>
+
+        <div class="form-row justify-content-center">
+            <div class="form-group col-md-3 text-center">
+                <label>File Upload</label>
+                <input type="file" class="form-control" name="productPic">
+            </div>
+             {{!-- <input type="file" name="productPic" id="productPic"> --}}
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-primary btn-sm" type="submit">Add Product</button>
+        </div>         
+             {{!-- <input type="submit" value="Add Product">              --}}             
+    </form>
+ </div>
+
+ 
 
 
     
