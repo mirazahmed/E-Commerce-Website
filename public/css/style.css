@@ -13,15 +13,15 @@ body{
 }
 
 .fa-amazon{
-font-size: 2.5rem;
+font-size: 2rem;
 color: #EA1C2C;
 }
 
 #shoopersParadise{
 font-family: 'Viaoda Libre', cursive;
- font-size: 3rem; 
+ font-size: 2rem; 
  color: #EA1C2C; 
- font-weight: 100;
+ /* font-weight: 100; */
 }
 #mainNavbar .nav-link{
     font-size: 1.25rem;
@@ -46,7 +46,7 @@ position: absolute;
 top: 20%;
 left: 50%;
 transform: translate(-50%, -50%);
-font-size: 50px;
+font-size: 40px;
 }
 
 
